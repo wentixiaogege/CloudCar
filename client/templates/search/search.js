@@ -51,6 +51,7 @@ Template.search.events({
         //    //call server
         //
         //}
+        Session.set("searchResult",""); // clear former results first ?
         Router.go('/search/?city=' + city + '&service=' + service );
         Meteor.call("getSearch", city, service, function(err, res){
             if(err){
