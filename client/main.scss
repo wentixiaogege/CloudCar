@@ -772,7 +772,14 @@ h6{
   margin-left: 30px !important;
   margin-right:30px !important;
 }
-.test_lang{
-  overflow: visible;
-  height:100px;
+
+.videocard-content{
+  width:  480px;
+  height: 400px;
+  border:solid 1px white;
+}
+.videocard-action a{
+  display: block;
+  font-size: 12px;
+  margin: 5px auto;
 }
