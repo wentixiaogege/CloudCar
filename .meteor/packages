@@ -50,3 +50,4 @@ dburles:google-maps
 templates:tabs
 tap:i18n
 tap:i18n-ui
+tap:i18n-db

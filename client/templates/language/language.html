@@ -1,0 +1,18 @@
+
+<template name="i18n_custom_dropdown">
+  <span class="tap-i18n-dropdown">
+    {{#if i18n_enabled}}
+    <!-- Split button -->
+    
+    <a class='dropdown-button btn' href='#' data-activates='dropdown_lang'>Languages</a>
+
+    <ul id="dropdown_lang" class="dropdown-content">
+        {{#each i18n_sortedLanguages}}
+          <li><a href="#" data-language="{{tag}}">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <span class="i18n-not-found">No i18n files found</span>
+    {{/if}}
+  </span>
+</template>
