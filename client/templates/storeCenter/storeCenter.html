@@ -1,0 +1,513 @@
+<template name="storeCenter">
+    <br>
+    <div class="container">
+        <div class="row">
+            <!--store name with sButton-->
+            <div class="col s12 m4 l3 ">
+                <div class="card store-info blue-grey darken-1">
+                    <div class="card-content white-text center">
+                        <h5 class="card-title">{{thisStore.storeName}}</h5>
+                        <img src="/oilChange.jpg">
+                    </div>
+                    <div class="card-action">
+                        <a href="#">{{thisStore.streetAddress}}</a>
+                        <a href="#">{{thisStore.phoneNumber}}</a>
+                    </div>
+                </div>
+                <div class="sButton">
+                    <p><a id="requesting" class="btn-floating btn-large waves-effect waves-light blue-grey"><i class="fa
+                  fa fa-bell"></i></a> <span class="">Requests</span></p>
+                    <!--<p><a id="schedule" class="btn-floating btn-large waves-effect waves-light light-green darken-2"><i class="fa fa-calendar-check-o"></i></a> <span class="">Schedule</span></p>-->
+                    <p><a id="quotes" class="btn-floating btn-large waves-effect waves-light red "><i class="fa fa-clone"></i></a> <span>Quotes</span></p>
+                    <p><a id="store-view-history" class="btn-floating btn-large waves-effect waves-light amber darken-4 "><i class="fa
+                  fa-shopping-cart"></i></a> <span class="hide-on-med-and-up">History</span><span class="hide-on-small-only">View History</span></p>
+                    <p><a id="my-store" class="btn-floating btn-large waves-effect waves-light amber"><i class="fa fa-wrench"></i></a> <span class="hide-on-med-and-up">Store</span><span class="hide-on-small-only">My Store</span></p>
+                </div>
+            </div>
+
+            <!--store panel-->
+            <div class="col s12 m8 l9">
+                <div class="card sPanel">
+                    <div class="card-content">
+                        <!--<div class="reward-store center">-->
+                            <!--<span class="card-title grey-text text-darken-4" ><i class=" purple-text text-darken-3 material-icons">redeem</i>-->
+                                <!--<span class="blue-grey-text text-darken-1">200 points</span></span>-->
+                            <!--<span class="card-title grey-text text-darken-4" ><i class=" purple-text text-darken-3 material-icons">grade</i>-->
+                                <!--<span class="blue-grey-text text-darken-1">05.45</span></span>-->
+                        <!--</div>-->
+                        <div class="">
+                            <nav>
+                                <div class="nav-wrapper">
+                                    <form id="search-receipt-code">
+                                        <div class="input-field blue-grey darken-1">
+                                            <input id="search-code" type="search" required placeholder="Receipt Codes">
+                                            <label for="search-code"><i class="material-icons">search</i></label>
+                                        </div>
+                                        <a class="btn teal lighten-3" id="submit-search-code"><i class="material-icons">trending_flat</i></a>
+                                    </form>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="panel card-content">
+                            <ul class="collection pTable with-header">
+                                {{#transition in="fadeIn:300" out="fadeOut:100"}}
+                                    {{> Template.dynamic template=currentTab}}
+                                {{/transition}}
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="requesting">
+    <li class="collection-header"><h4>Requests</h4></li>
+    <li class="collection-item">
+        <span class="pDate blue-grey-text text-lighten-2">Date</span>
+        <p class="service-date-requesting blue-grey-text text-lighten-3">For Service</p>
+        <span class="pService blue-grey-text text-lighten-2">Service</span>
+        <span class="pPrice blue-grey-text text-lighten-2 hide-on-small-only">Vehicle</span>
+        <span class="pStore blue-grey-text text-lighten-2 hide-on-small-only">Expires</span>
+    </li>
+    {{#each requests}}
+        <li class="collection-item">
+            <a href="" class="req-detail">
+                <div>
+                    <span class="pDate">{{formatdateMMDD date}}</span>
+                    <span class="pService">{{service}}</span>
+                    <span class="pPrice hide-on-small-only LOCATION">{{vehicle}}</span>
+                    <span class="pStore hide-on-small-only VEHICLE">{{expiredTime}}</span>
+                    <i class="material-icons pTable-icon blue-grey-text text-lighten-2">chevron_right</i>
+                </div>
+            </a>
+        </li>
+    {{/each}}
+        <!--<li class="collection-item test">-->
+            <!--<a href="" class="req-detail">-->
+                <!--<div>-->
+                    <!--<span class="pDate">11/08</span>-->
+                    <!--<span class="pService">oil change</span>-->
+                    <!--<span class="pPrice hide-on-small-only LOCATION">BMW</span>-->
+                    <!--<span class="pStore hide-on-small-only VEHICLE">0.8hr</span>-->
+                    <!--<i class="material-icons pTable-icon blue-grey-text text-lighten-2">chevron_right</i>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</li>-->
+</template>
+
+<template name="requestItemDetail">
+    <a href="" class="back-to-req-list padding-left-10 rose-color"><i class="fa fa-angle-left"></i> Back</a>
+    {{#with thisReq}}
+        <h5 class="blue-grey-text text-darken-1 padding-10">{{service}} </h5>
+        <div class="margin-top-bottom-10 padding-10">
+            <p>Customer: {{userName}}</p>
+            <p>Vehicle: {{vehicle}}</p>
+        </div>
+        <div class="margin-top-bottom-10 padding-10">
+            <p class="rose-color">Expire: {{expiredTime}}</p>
+            <p>Appointment: {{formatdate date}}</p>
+            <p>Request Date: {{formatdate createdAt}}</p>
+        </div>
+        <div class="margin-top-bottom-10 padding-10">
+            <p>Message:</p>
+            <p>{{message}}</p>
+        </div>
+        <div class="margin-top-bottom-10 padding-10 grey lighten-5 row">
+            <div class="col s12">
+                <div class="input-field">
+                    <input id="offer_price" type="number" class="validate width-150px" step="0.01">
+                    <label for="offer_price">Price ($)</label>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <textarea id="message" class="materialize-textarea" ></textarea>
+                    <label for="message">Message(optional)</label>
+                </div>
+            </div>
+        </div>
+        <div class="padding margin-top-bottom-10 center">
+            <a class="btn amber darken-1 " data-action="bidRequest">
+                Send Quote
+            </a>
+        </div>
+        <p class="padding-10 rose-color">{{errMessage}}</p>
+        <div id="offer-sent" class="modal">
+            <div class="modal-content center">
+                <h5>Success</h5>
+                <p class="black-text">Your quote has been sent.</p>
+            </div>
+            <div class="modal-footer store-panel">
+                <a id="after-sent-offer" class="waves-effect waves-green btn teal lighten-3">OK</a>
+            </div>
+        </div>
+    {{/with}}
+</template>
+
+<!--<template name="schedule">-->
+    <!--<li class="collection-header"><h4>Schedule</h4></li>-->
+    <!--<div clas="serviceList">-->
+
+    <!--</div>-->
+    <!--<select id="selAddService" name="service" style="display: block;">-->
+        <!--{{#each services}}-->
+            <!--<option   value="{{value}}">{{text}}</option>-->
+        <!--{{/each}}-->
+    <!--</select>-->
+    <!--<button id="btnAddService">add</button>-->
+<!--</template>-->
+
+<template name="quotes">
+    <!--<li class="collection-header"><h4>Quotes</h4></li>-->
+    <li class="">
+        <ul class="tabs">
+            <li class="tab col s6"><a class="active" href="#pending-quote">Pending</a></li>
+            <li class="tab col s6"><a href="#on-going-quote">On Going</a></li>
+        </ul>
+        <div id="pending-quote" class="col s12">
+            <li class="collection-item">
+                <span class="pDate blue-grey-text text-lighten-2">Date</span>
+                <p class="service-date-quote blue-grey-text text-lighten-3">For Service</p>
+                <span class="pService blue-grey-text text-lighten-2">Service</span>
+                <span class="pPrice blue-grey-text text-lighten-2 hide-on-small-only">Price</span>
+                <span class="pStore blue-grey-text text-lighten-2 hide-on-small-only">Expires</span>
+            </li>
+
+
+            {{#each offersPending}}
+                <li class="collection-item">
+                    <a href="#" class="goPendingQuoteDetail">
+                        <div>
+                            <span class="pDate">{{formatdateMMDD serviceDate}}</span>
+                            <span class="pService">{{service}}</span>
+                            <span class="pPrice hide-on-small-only">$ {{price}}</span>
+                            <span class="pStore hide-on-small-only">
+                                <!--{{expiredTime}}-->
+                            </span>
+                            <i class="goQuoteDetail material-icons pTable-icon blue-grey-text text-lighten-2 ">chevron_right</i>
+                        </div>
+                    </a>
+                </li>
+            {{/each}}
+        </div>
+        <div id="on-going-quote" class="col s12">
+            <li class="collection-item">
+                <span class="pDate blue-grey-text text-lighten-2">Date</span>
+                <p class="service-date-quote blue-grey-text text-lighten-3">For Service</p>
+                <span class="pService blue-grey-text text-lighten-2">Service</span>
+                <span class="pPrice blue-grey-text text-lighten-2 hide-on-small-only">Price</span>
+                <span class="pStore blue-grey-text text-lighten-2 hide-on-small-only">Expires</span>
+            </li>
+
+            {{#each offersOnGoing}}
+                <li class="collection-item">
+                    <a href="" class="goOnGoingQuoteDetail">
+                        <div>
+                            <span class="pDate">{{formatdateMMDD serviceDate}}</span>
+                            <span class="pService">{{service}}</span>
+                            <span class="pPrice hide-on-small-only">$ {{price}}</span>
+                            <span class="pStore hide-on-small-only">
+                                <!--{{expiredTime}}-->
+                            </span>
+                            <i class="material-icons pTable-icon blue-grey-text text-lighten-2">chevron_right</i>
+                        </div>
+                    </a>
+                </li>
+            {{/each}}
+        </div>
+
+    </li>
+
+</template>
+
+<template name="pendingQuoteDetail">
+    <a href="" class="back-pending padding-left-10 rose-color"><i class="fa fa-angle-left"></i> Back</a>
+
+        <h5 class="blue-grey-text text-darken-1 padding-10">{{thisQuote.service}}</h5>
+        <div class="margin-top-bottom-10 padding-10">
+            <p class="teal-text text-lighten-3">Status: pending</p>
+            <p>Quote Price: {{thisQuote.price}}</p>
+            <p class="rose-color">Expire:
+                <!--{{thisQuote.expiredTime}}-->
+            </p>
+            <p>Appointment: {{thisQuote.serviceDate}}</p>
+            <p>Quote Date: {{thisQuote.createdAt}}</p>
+        </div>
+        <div class="margin-top-bottom-10 padding-10">
+            <p>Customer: {{thisQuote.email}} {{thisQuote.userName}}</p>
+            <p>Phone:{{thisQuote.phone}}</p>
+            <p>Vehicle: {{thisQuote.vehicle}}</p>
+            <p>Customer Message:</p>
+            <p>{{thisQuote.customerMessage}}</p>
+        </div>
+
+        <div class="margin-top-bottom-10 padding-10">
+            <p>Store Message</p>
+            <p>{{thisQuote.message}}</p>
+        </div>
+
+        <div class="padding margin-top-bottom-10 center row ">
+            <a class="btn amber darken-1 modal-trigger col s8 offset-s2" id="update-quote-trigger">
+               Update Quote
+            </a>
+            <a class="btn margin-top-bottom-10  blue-grey lighten-1 col s8 offset-s2" id="">
+                Discard Quote
+            </a>
+        </div>
+
+        <p class="padding-10 rose-color">{{errMessage}}</p>
+        <div id="update-quote" class="modal">
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <div class="input-field">
+                        <input id="txt-update-price" type="number" value="{{thisQuote.price}}" class="validate" step="0.01">
+                        <label for="offer_price" class="active">Price ($)</label>
+                    </div>
+                </div>
+                <div class="col s8 offset-s2">
+                    <div class="input-field">
+                        <textarea id="txt-update-msg" class="materialize-textarea" >text{{thisQuote.message}}</textarea>
+                        <label for="message" class="active">Message(optional)</label>
+                    </div>
+                </div>
+                <a id="close-update-modal" class="btn blue-grey lighten-1 col s4 offset-s2">Cancel</a>
+                <a id="btn-update-quote" class="btn amber darken-1 col s4">Update</a>
+            </div>
+
+
+
+        </div>
+
+
+    <!--<li>-->
+        <!--<ul>Consumer: {{thisQuote.email}}</ul>-->
+        <!--<ul>Service: {{thisQuote.service}}</ul>-->
+        <!--<ul>Vehicle: {{thisQuote.vehicle}}</ul>-->
+        <!--<ul>Appointment Date: {{thisQuote.serviceData}}</ul>-->
+        <!--<ul>Price:{{thisQuote.price}}</ul>-->
+        <!--<ul>{{thisQuote.createdAt}}</ul>-->
+    <!--</li>-->
+</template>
+
+
+<template name="onGoingQuoteDetail">
+    <a href="" class="back-pending padding-left-10 rose-color"><i class="fa fa-angle-left"></i> Back</a>
+    <h5 class="blue-grey-text text-darken-1 padding-10">{{thisQuote.service}}</h5>
+    <div class="margin-top-bottom-10 padding-10">
+        <p class="teal-text text-lighten-3">Status: on going</p>
+        <p>Quote Price: {{thisQuote.price}}</p>
+        <p class="rose-color">Appointment: {{formatdate thisQuote.serviceDate}}</p>
+        <p>Quote Date: {{formatdate thisQuote.createdAt}}</p>
+    </div>
+    <div class="margin-top-bottom-10 padding-10">
+        <p>Customer: {{thisQuote.email}}</p>
+        <!--<p>Phone: (510)123-4567</p>-->
+        <p>Vehicle: {{thisQuote.vehicle}}</p>
+        <p>Customer Message:</p>
+        <p>{{thisQuote.customerMessage}}</p>
+
+    </div>
+
+    <div class="margin-top-bottom-10 padding-10">
+        <p>Store Message</p>
+        <p>{{thisQuote.message}}</p>
+    </div>
+    {{#if isConfirm}}
+    <div class="padding margin-top-bottom-10 center row ">
+        <a class="btn amber darken-1 modal-trigger col s8 offset-s2" id="btn-confirm">
+            Confirm
+        </a>
+    </div>
+    {{/if}}
+
+</template>
+
+
+<template name="storeViewHistory">
+    <li class="collection-header"><h4>View History</h4></li>
+    <li class="collection-item">
+        <span class="pDate blue-grey-text text-lighten-2">Date</span>
+        <p class="service-date-requesting blue-grey-text text-lighten-3">For Service</p>
+        <span class="pService blue-grey-text text-lighten-2">Service</span>
+        <span class="pPrice blue-grey-text text-lighten-2 hide-on-small-only">Price</span>
+        <span class="pStore blue-grey-text text-lighten-2 hide-on-small-only">Vehicle</span>
+    </li>
+    {{#each trans}}
+        <li class="collection-item">
+            <a href="#" class="store-trans">
+                <div>
+                    <span class="pDate">{{formatdateMMDD serviceDate}}</span>
+                    <span class="pService">{{service}}</span>
+                    <span class="pPrice hide-on-small-only">$ {{price}}</span>
+                    <span class="pStore hide-on-small-only">{{storeName}}</span>
+                    <i class="material-icons pTable-icon blue-grey-text text-lighten-2">chevron_right</i>
+                </div>
+            </a>
+        </li>
+    {{/each}}
+</template>
+
+<template name="storeViewHistoryDetail">
+    <a href="" class="back-store-history padding-left-10 rose-color"><i class="fa fa-angle-left"></i> Back</a><br />
+    {{#with thisTrans}}
+        <h5 class="blue-grey-text text-darken-1 padding-10">{{service}}</h5>
+        <div class="margin-top-bottom-10 padding-10">
+            <p class="teal-text text-lighten-3">Status: confirmed</p>
+            <p>Quote Price: {{price}}</p>
+            <p>Created At: {{createdAt}}</p>
+        </div>
+        <div class="margin-top-bottom-10 padding-10">
+            <p>Customer: {{userName}}</p>
+            <p>Vehicle: {{vehicle}}</p>
+            <p>Customer Message:</p>
+            <p>{{customerMsg}}</p>
+
+        </div>
+
+        <div class="margin-top-bottom-10 padding-10">
+            <p>Store Message</p>
+            <p>{{storeMsg}}</p>
+        </div>
+    {{/with}}
+</template>
+
+<template name="myStore">
+    <!--<li class="collection-header"><h4>My Store</h4></li>-->
+    <li class="my-store">
+        <ul class="tabs amber-text">
+            <li class="tab col s4"><a class="active" href="#store">Store</a></li>
+            <li class="tab col s4"><a href="#review">Review</a></li>
+            <li class="tab col s4"><a href="#payment">Payment</a></li>
+        </ul>
+        <div id="store" class="col s12">
+            <br>
+            <h5 class="">{{thisStore.storeName}}</h5>
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header active blue-grey-text text-lighten-2"><i class="fa fa-angle-down"></i>Contact Information</div>
+                    <div class="collapsible-body ">
+                        <p>{{thisStore.phoneNumber}}</p>
+                        <p>{{thisStore.streetAddress}}</p>
+                        <p>{{thisStore.city}}</p>
+                        <p>{{thisStore.state}}</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header blue-grey-text text-lighten-2"><i class="fa fa-angle-down"></i>Staff</div>
+                    <div class="collapsible-body">
+                        {{#each thisStore.staffList}}
+                            <p><a href="#">{{#if name}}{{name}}{{/if}}  {{email}}</a></p>
+                            {{/each}}
+                        <form class="row center" id="add-staff">
+                            <div class="input-field col s6 l3">
+                                <input class="active" id="txt-email" type="text" required />
+                                <label for="txt-email">Email</label>
+                            </div>
+                            <div class="input-field col s6 l3">
+                                <input class="active" id="txt-name" type="text" required/>
+                                <label for="txt-name">Name</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <input type="submit" value="Add" class="waves-effect waves-light btn" />
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header blue-grey-text text-lighten-2"><i class="fa fa-angle-down"></i>Service Available</div>
+                    <div class="collapsible-body">
+                        {{#each thisStore.services}}
+                        <p>{{service}} {{#if price}}From ${{price}}{{/if}} <a href="" class="remove-service"><i class="fa fa-remove"></i></a></p>
+                        {{/each}}
+                        <form class="row" id="add-service">
+                            <div class="input-field col s6 l3">
+                                <!--<input class="active" id="service" type="text" required />-->
+                                <!--<label for="service">Service</label>-->
+                                <select class="browser-default" id="service" required>
+                                    <option value="">Service</option>
+                                    {{#each services}}
+                                        <option value="{{value}}">{{text}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="input-field col s6 l3">
+                                <input class="active" id="price" type="number" />
+                                <label for="price">Price ($)</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <input type="submit" value="Add" class="waves-effect waves-light btn" />
+                            </div>
+                        </form>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="collapsible-header blue-grey-text text-lighten-2"><i class="fa fa-angle-down"></i>Language</div>
+                    <div class="collapsible-body">
+                        {{#each thisStore.languages}}
+                           <div>{{this}} <a href="" class="remove-language"><i class="fa fa-remove"></i></a>   </div>
+                        {{/each}}
+                        <form class="row" id="add-language">
+                            <div class="input-field col s6 l3">
+                                <!--<input class="active" id="service" type="text" required />-->
+                                <!--<label for="service">Service</label>-->
+
+                                <select class="browser-default" id="language" required>
+                                    {{#each languages}}
+                                        <option value="{{value}}">{{text}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="input-field col s3">
+                                <input type="submit" value="Add" class="waves-effect waves-light btn" />
+                            </div>
+                        </form>
+                    </div>
+
+                </li>
+            </ul>
+
+
+        </div>
+        <div id="review" class="col s12">
+
+        </div>
+        <div id="payment" class="col s12">
+            <div class="row">
+                <div class="col m12">
+                    {{#each cards}}
+                        <div class="card blue-grey darken-1">
+                            <div class="card-content white-text">
+                                <p class="card-title">**** **** **** {{last4}} <a href="" class="delete_card"><i class="material-icons float-right">close</i></a></p>
+                                <p>Exp. {{exp_month}}/{{exp_year}} Zip {{address_zip}}</p>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="">Add new card</div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="card-number" type="tel" class="cc-num" required>
+                    <label for="card-number">Card Number</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="exp-date" type="tel" class="cc-exp" required>
+                    <label for="exp-date">Expired Date</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="cvc" type="tel" class="cc-cvc" required>
+                    <label for="cvc">CVC</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="zip-code" type="tel" class="cc-zip" required>
+                    <label for="zip-code">Zip Code</label>
+                </div>
+            </div>
+            <a id="save_card" class="waves-effect waves-light btn" style="">Save</a>
+        </div>
+    </li>
+</template>

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+CARVICER_WEB_ENV=development meteor --settings settings.json

@@ -1,0 +1,774 @@
+// If you want to override materialize sass variables you can uncomment the following:
+@import "{poetic:materialize-scss}/bower_components/materialize/sass/components/_color.scss";
+//$primary-color: color("blue", "lighten-2");
+$input-focus-color :#ffb300;
+$slider-indicator-color:#80cbc4;
+
+
+  // import main scss file
+@import "{poetic:materialize-scss}/bower_components/materialize/sass/materialize.scss";
+body, html{
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+.slider .indicators .indicator-item.active{
+  background-colorcolor:#80cbc4 !important;
+}
+#sidenav-overlay{
+  z-index: 8;
+}
+.coming-soon{
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 200px;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float:right;
+}
+.collection-item a{
+  color: black;
+}
+.margin-10{
+ margin:10px;
+}
+.margin-top-bottom-10{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.margin-top-bottom-20{
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+.padding-10{
+  padding:10px;
+}
+.padding-left-10{
+  padding-left: 10px;
+}
+.padding-top-50{
+  height: 50px;
+}
+.rose-color{
+  color: #ee6e73 !important;
+}
+@media only screen and (min-width: 993px){
+  .width-150px{
+    width:150px !important;
+  }
+}
+/* main navbar starts */
+nav{
+  //z-index: 9;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1),0 0px 0px 0 rgba(0,0,0,0.12);
+}
+.font-quicksand{
+  font-family: 'Quicksand', sans-serif;
+}
+.font-questrial{
+  font-family: 'Questrial', sans-serif;
+}
+.brand-logo{
+  margin:0 10px;
+}
+.home-sign-in{
+  background-color: #eceff1;
+  margin-top: 2px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 3px;
+}
+.btn-small{
+  height: 35px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 2px;
+  line-height: 35px;
+}
+h6{
+  font-size: 16px;
+  margin:15px 1px;
+}
+.signup-mobile-device{
+  position: absolute;
+  top:65px;
+  right:3px;
+}
+.navbar-with-logo{
+  margin-left: 70px;
+}
+.logo-heading{
+  font-size: 16px;
+  font-family: 'Questrial', sans-serif;
+  margin-left: -5px;
+}
+.main-navbar .nav-wrapper .btn{
+  width: 100%;
+  height:45px;
+  line-height: 45px;
+  margin-left: 0px;
+}
+
+/* main navbar ends */
+
+/* info-catalog start */
+
+.info-catalog{
+  margin-top: 10px;
+}
+.info-content{
+ margin-bottom:80px;
+  padding-left:10px ;
+}
+.info-content h5{
+  padding-top:15px;
+}
+.collection a.collection-item{
+  color:#80cbc4;
+}
+#anchor-to-catalog{
+  opacity: 0.75;
+  z-index: 7;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+}
+@media only screen and (min-width:601px){
+  .info-catalog{
+    margin-top: 100px;
+  }
+  .info-content{
+    margin-top: 80px;
+  }
+}
+/* info-catalog ends */
+
+/* homepage start */
+.parallax-container {
+  height: auto;
+  overflow: visible;// jack adds for search box show up
+}
+.logo-banner{
+  width: 130px;
+  margin-bottom:-10px ;
+}
+ .dropdown-content li{
+  line-height: 1rem !important;
+}
+.home-nav{
+  box-shadow: 0 -20px 30px 0 rgba(0,0,0,0.16),0 0px 0px 0 rgba(0,0,0,0.12);
+  border: none;
+}
+.home-nav ul li a{
+  color:#26a69a !important;
+}
+.dropdown-button.my-stores{
+  color:#26a69a !important;
+}
+.home-nav .button-collapse .material-icons{
+  color:#80cbc4;
+}
+.sing-in-btn{
+  //border:1px #80cbc4 solid;
+  display: inline;
+  color:#004d40 !important;
+  width: 100px;
+  height:36px;
+  padding:8px 14px;
+  margin-left: -20px;
+}
+.nav-wrapper .btn{
+  padding-left: 14px;
+  padding-right: 14px;
+  margin:5px;
+}
+.modal {
+  max-width: 500px;
+  padding-top:15px;
+}
+.modal-footer{
+  position: relative;
+  bottom: 40px;
+}
+
+.at-social-btn{
+  margin:10px 0;
+}
+.slider{
+  margin-bottom: 30px;
+}
+.slides{
+  background-color: white;
+}
+.homepage-btn{
+  position: absolute;
+  right: 10px;
+}
+.slider .slides{
+  background-color: white;
+}
+.home-slider{
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+.slide-img{
+  width:70%;
+  margin:0 auto;
+}
+.appstore-col{
+  padding:0 !important;
+}
+.appstore{
+  width:75%;
+}
+.how-to-use{
+ padding-bottom: 60px;
+}
+.how-to-use .col{
+  padding:0 15px;
+}
+.how-to-use h4{
+  padding-top:50px;
+  padding-bottom: 50px;
+}
+.how-to-use img{
+  max-width: 100px;
+  border-radius: 10px;
+  margin: 5px auto;
+}
+.how-to-use .workflow p{
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 601px) {
+  .how-to-use .workflow p{
+    text-align: left;
+  }
+}
+
+/* homepage ends */
+
+/* user center starts */
+.js-af-select-file{
+  width: 120px;
+  background-color:#546e7a !important;
+}
+
+.update-picture .input-field label{
+  color:white;
+  padding-left:10px;
+  margin-top:-3px;
+}
+.cCard{
+  min-width:180px;
+}
+.cProfile{
+  width: 100%;
+  min-height: 200px;
+  padding-top: 30px;
+}
+.imgProfile{
+  max-width:100px;
+  max-height:100px;
+  border-radius:50% !important;
+  border:solid white 2px;
+}
+.imgProfile img{
+  border-radius:50%;
+}
+.cButton a{
+  margin: 10px;
+}
+.cButton p{
+  font-size: 12px;
+}
+.cButton .btn-floating.btn-large{
+  width:45px;
+  height:45px;
+}
+.cButton .btn-floating.btn-large i{
+  line-height: 20px;
+}
+.cTable{
+  padding:10px;
+  height: 120px;
+}
+.cTable p{
+  font-size: 18px;
+  margin-top: -10px;
+}
+.cTable-service{
+  padding:10px;
+  height: 120px;
+  margin-left: -10px;
+}
+.cTable-med{
+  margin-left: 10px;
+  padding:10px;
+  margin-bottom: 10px;
+}
+.cTable-med-1{
+  float: left;
+}
+.cTable-med-2{
+  float: right;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.cTable-title{
+  padding-left:5px;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.cTable-service-content{
+  height: 20px;
+  overflow: hidden;
+}
+.cTable-1{
+  width:45px;
+  display: inline-block;
+  text-align: left;
+  padding-left: 5px;
+  font-size: 12px;
+  float:left;
+}
+.cTable-2{
+  height: 20px;
+  width: 100%;
+  display: inline-block;
+  text-align:left;
+  float:left;
+  margin-left: -45px;
+  padding-left: 50px;
+  padding-right: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cTable-3{
+  width:55px;
+  display: inline-block;
+  text-align: right;
+  padding-right:5px;
+  font-size: 12px;
+  position: relative;
+  bottom: 20px;
+  float: right;
+}
+.reward-mobile{
+  position:absolute;
+  top:200px;
+}
+.reward-mobile i{
+  //border-radius: 50%;
+  //width: 30px;
+  //height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+.reward-mobile span{
+  font-size: 18px;
+  font-weight: 400;
+}
+.panel .card-content{
+  padding-top: 0px;
+}
+.collection.pTable{
+  border: none;
+}
+.pTable span{
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+.pTable .secondary-content{
+  color:#000000;
+}
+.pTable-icon{
+  float: right;
+  margin-right: -165px;
+  position: relative;
+  bottom: 22px;
+}
+.collection-item{
+  height:42px;
+}
+.pDate{
+  width: 50px ;
+  margin-left: -10px;
+  float: left;
+  text-align:left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.service-date-requesting{
+  position: absolute;
+  top:110px;
+  left:10px;
+  font-size: 10px;
+}
+.service-date-quote{
+  position: absolute;
+  top:73px;
+  left:20px;
+  font-size: 10px;
+}
+.pService{
+  width: 90%;
+  float:left;
+  text-align: center;
+  margin-left: -40px;
+  padding-left: 50px;
+  padding-right: 165px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pPrice{
+  width:80px;
+  float: right;
+  text-align: center;
+  padding-left: 5px;
+  //margin-right: 25px;
+  position: relative;
+  bottom:20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pStore{
+  width: 70px;
+  float:right;
+  text-align: center;
+  position: relative;
+  bottom:20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media only screen and (min-width:601px) and (max-width:1010px){
+  .cTable{
+    margin-left: 10px;
+  }
+  .panel{
+    margin-left: 10px;
+  }
+
+}
+@media only screen and (min-width:601px) and (max-width:992px){
+  .cTable-service{
+    padding:10px;
+    height: 120px;
+    margin-left: 10px;
+  }
+  .pService{
+    width: 90%;
+    float:left;
+    text-align: center;
+    margin-left: -40px;
+    padding-left: 50px;
+    padding-right: 95px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pStore{
+    display: none !important;
+  }
+  .pTable-icon{
+    float: right;
+    margin-right: -95px;
+    position: relative;
+    bottom: 22px;
+  }
+}
+@media only screen and (max-width:600px){
+  .cTable-service{
+    margin-left: 0px;
+  }
+  .cButton{
+    display: flex;
+  }
+  .cButton p{
+    text-align: center;
+  }
+  .card.panel{
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .pService{
+    width: 100%;
+    float:left;
+    padding-left: 50px;
+    padding-right: 0px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pTable-icon{
+    //float: right;
+    //margin-right: -95px;
+    //position: relative;
+    //bottom: 22px;
+  }
+}
+.update-picture{
+  margin-bottom: 30px;
+}
+.basic-info{
+  margin-bottom: 20px;
+}
+.add-vehicle .panel .card-content{
+  padding-top: 20px;
+}
+/* user center ends */
+
+/* store center starts */
+#submit-search-code{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 100;
+  top:10px;
+  right:10px;
+  border-radius: 50%;
+}
+#submit-search-code i{
+  position: relative;
+  bottom:16px;
+  right:14px;
+}
+.store-info .card-content img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border:solid 1px white;
+}
+.store-info .card-action a{
+  display: block;
+  font-size: 12px;
+  margin: 5px auto;
+}
+.sPanel .input-field{
+  border-radius: 5px;
+}
+.sButton a{
+  margin: 10px;
+
+}
+.sButton p{
+  font-size: 12px;
+}
+.sButton .btn-floating.btn-large{
+  width:30px;
+  height:30px;
+}
+.sButton .btn-floating.btn-large i{
+  margin-top: -10px;
+  line-height: 0px !important;
+  font-size: 18px;
+  text-align: center;
+}
+.sButton .btn-large{
+  line-height: 35px;
+}
+.reward-store p{
+  margin: 25px;
+}
+.reward-store i{
+  text-align: center;
+  vertical-align: middle;
+}
+.reward-store span{
+  font-size: 18px;
+  font-weight: 400;
+  display: inline-block;
+  margin-left:5px;
+  margin-right:5px;
+}
+.sPanel{
+  min-height: 600px;
+}
+.sPanel .card-content{
+
+}
+.sPanel .float-left{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.sPanel nav{
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: -30px;
+}
+.modal-footer.store-panel .btn{
+  margin-right:10px;
+}
+#update-quote{
+  min-height: 300px;
+}
+#update-quote .btn{
+  margin-right:5px;
+}
+@media only screen and (max-width: 600px){
+  .sButton{
+    display: flex;
+    text-align: center;
+  }
+  .sButton p{
+    text-align: center;
+  }
+  .sPanel .nav-wrapper i{
+    margin-top: 13px;
+  }
+  #submit-search-code{
+    position: absolute;
+    z-index: 100 ;
+    top:6px;
+    right:10px;
+  }
+}
+/* store center ends */
+
+/* sign up starts */
+.sign-up-heading{
+  margin-top:30px;
+}
+.sign-up-heading img{
+  margin-top: 30px;
+}
+.sign-sheet{
+  margin: 0 auto;
+  padding:10px 20px 100px 20px;
+  max-width: 500px;
+  align-items: center;
+}
+/* footer starts */
+.footer{
+  padding-top: 50px;
+}
+.footer a{
+  color:#90a4ae;
+}
+.footer p{
+  margin-bottom: 0;
+}
+.footer i{
+  margin:0 5px;
+}
+/* footer ends */
+
+/* search starts */
+.search-box{
+  padding-top: 10px;
+  padding-bottom: 100px;
+}
+.city .input{
+  color:#e0e0e0 !important;
+}
+.service {
+  margin-top: 0 !important;
+}
+.search-text{
+  //text-shadow: 2px 2px 5px #757575 !important;
+  color:#000000 !important;
+}
+.search-box input{
+  color: black !important;
+}
+.search-box input[type=text]:disabled{
+  color:#000000 !important;
+}
+.search-box .select-wrapper input:disabled.select-dropdown {
+  color:#e0e0e0 ;
+  //text-shadow: 2px 2px 5px #757575 !important;
+  position:absolute;
+}
+//.service .select-wrapper .caret{
+//  color:#e0e0e0 ;
+//  text-shadow: 2px 2px 5px #757575;
+//}
+.search-result{
+  padding-bottom: 50px;
+}
+
+@media only screen and (max-width: 992px){
+  .search-box .btn{
+    z-index:200;
+    margin-top: 20px;
+  }
+}
+/* search ends */
+
+/* register starts */
+.register-margin{
+  margin-left:-10px !important;
+  margin-right: -20px !important;
+}
+#map:before{
+  position:relative;
+}
+#map{
+  width: 280px;
+  height:280px;
+  position: absolute;
+  left:50%;
+  margin-left: -140px;
+}
+.register {
+  padding-left:10px;
+  padding-right:10px;
+}
+.store-left-table{
+  width:100px;
+  position: relative;
+  float: left;
+
+}
+.store-right-table{
+  width: 100%;
+  overflow: visible;
+  text-overflow:clip;
+  //position: absolute;
+  float: left;
+  margin-bottom: 10px;
+}
+.my-store .collapsible{
+  box-shadow: none;
+  border-left: none;
+  border-right: none;
+
+}
+.my-store .collapsible p{
+
+  padding:10px 28px 10px 28px;
+
+  font-size: 12px;
+}
+.my-store .collapsible a{
+
+  color:black;
+}
+@media only screen and (max-width: 323px) {
+  .register-btn .btn{
+    padding-left:14px !important;
+    padding-right:14px !important;
+  }
+}
+/* register ends */
+.hometabs{
+  background-color: white;
+  margin-bottom: 2px;
+  width: 100%;
+  min-height:600px;
+  display: inline-block;
+}
+.top-stores{
+  margin-left: 30px;
+  margin-right:30px;
+}
+.store-result{
+  margin-left: 30px !important;
+  margin-right:30px !important;
+}

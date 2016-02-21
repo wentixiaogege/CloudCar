@@ -1,0 +1,295 @@
+<template name="userCenter">
+    <br>
+  <div class="container">
+      <div class="row">
+          <div class="col s12 m4 l3">
+              <div class=" hide-on-med-and-up">
+                  <div class="card blue-grey darken-1 cTable-service">
+                      <div class="section white-text cTable-title center light blue-grey lighten-1">Upcoming Service</div>
+                      <div class="cTable-service-content">
+                          {{#if activeReq }}
+                              <span class="white-text cTable-1 blue-grey lighten-1">11/14</span>
+                              <span class="white-text cTable-2">Oil Change</span>
+                              <span class="white-text cTable-3  blue-grey lighten-1">$40.00</span>
+                          {{else}}
+                              <span class="white-text">Send a request now use <a target="_blank" href="https://itunes.apple.com/us/app/carvicer/id1030583980?mt=8">Carvicer App</a>!</span>
+                          {{/if}}
+                  </div></div>
+              </div>
+
+              <div class="card cCard">
+                  <div class="card-image waves-effect waves-block waves-light">
+                      <div class="cProfile activator center blue-grey lighten-5">
+                          {{#if avatar}}
+                            <img class="imgProfile" src="{{avatar.url}}">
+                          {{else}}
+                              <img class="imgProfile" src="/default_avatar.png">
+                          {{/if}}
+                          <h5 class="cTitle">
+                             {{#if currentUser.profile.firstName }}
+                                 {{ currentUser.profile.firstName }}
+                             {{ else }}
+                                 Welcome
+                             {{/if}}
+                          </h5>
+                      </div>
+
+                  </div>
+                  <div class="card-content ">
+                      <div class="reward-mobile hide-on-med-and-up">
+                          <p class="card-title grey-text text-darken-4" ><i class=" purple-text text-darken-3 material-icons">redeem</i>
+                              <span class="user-reward amber-text text-lighten-1"></span>
+                          </p>
+                      </div>
+                      <span class="card-title activator blue-grey-text text-lighten-2"><i class="material-icons right" style="margin-top: -15px;">more_vert</i></span>
+                  </div>
+                  <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4">My Info<i class="material-icons right">close</i></span>
+                      {{#each currentUser.emails }}
+                          <p class="blue-grey-text text-lighten-2">{{ address }}</p>
+                      {{/each}}
+                      <p class="blue-grey-text text-lighten-2">{{ currentUser.profile.phone }}</p>
+
+                  </div>
+              </div>
+
+              <div class="cButton">
+                  <p><a id="view-history" class="btn-floating btn-large waves-effect waves-light red"><i class="fa
+                  fa-shopping-cart"></i></a> <span class="hide-on-med-and-up">History</span><span class="hide-on-small-only">View History</span></p>
+                  <p><a id="add-payment" class="btn-floating btn-large waves-effect waves-light  amber darken-4"><i class="fa fa-credit-card"></i></a> <span class="hide-on-med-and-up">Payment</span><span class="hide-on-small-only">Add Payment</span></p>
+                  <p><a id="edit-info" class="btn-floating btn-large waves-effect waves-light amber"><i class="fa fa-pencil"></i></a> <span class="hide-on-med-and-up">Edit</span><span class="hide-on-small-only">Edit Information</span></p>
+              </div>
+          </div>
+
+          <div class="col s12 m8 l9">
+              <div class="col m12 l4 ">
+                  <div class="card cTable center hide-on-med-and-down reward">
+                      <div class="section cTable-title blue-grey-text text-lighten-2 ">Reward</div>
+                      <p class="user-reward white-text amber-text text-lighten-2"></p>
+                  </div>
+
+                  <div class="card blue-grey lighten-2 cTable-med hide-on-large-only hide-on-small-only">
+                      <span class="cTable-med-1 white-text light ">Reward</span>
+                      <span class="user-reward cTable-med-2 white-text blue-grey lighten-1"></span>
+                  </div>
+
+              </div>
+
+              <div class="col m12 l8 hide-on-small-only">
+                  <div class="card blue-grey darken-1 cTable-service">
+                      <div class="section white-text cTable-title center light blue-grey lighten-1">Upcoming Service</div>
+                      <div class="cTable-service-content">
+                         {{#if activeReq }}
+                             <span class="white-text cTable-1 blue-grey lighten-1">11/14</span>
+                             <span class="white-text cTable-2">Oil Change</span>
+                             <span class="white-text cTable-3  blue-grey lighten-1">$40.00</span>
+                         {{else}}
+                             <span class="white-text">Send a request now use <a target="_blank" href="https://itunes.apple.com/us/app/carvicer/id1030583980?mt=8">Carvicer App</a>!</span>
+                         {{/if}}
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12">
+                  <div class="card panel">
+                      <div class="card-content">
+                          <br>
+                          <ul class="collection pTable with-header">
+                              {{> Template.dynamic template=currentTab}}
+                          </ul>
+                      </div>
+
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+  </div>
+    <div class="padding-top-50 hide-on-small-only"></div>
+</template>
+
+<template name="viewHistory">
+    <li class="collection-header"><h4>View History</h4></li>
+    <li class="collection-item">
+        <span class="pDate blue-grey-text text-lighten-2">Date</span>
+        <span class="pService blue-grey-text text-lighten-2">Service</span>
+        <span class="pPrice blue-grey-text text-lighten-2 hide-on-small-only">Price</span>
+        <span class="pStore blue-grey-text text-lighten-2 hide-on-small-only">Store</span>
+    </li>
+    {{#each trans}}
+    <li class="collection-item">
+        <a href="#" class="">
+                <span class="pDate">{{formatdate serviceDate}}</span>
+                <span class="pService">{{service}}</span>
+                <span class="pPrice hide-on-small-only">$ {{price}}</span>
+                <span class="pStore hide-on-small-only">{{storeName}}</span>
+                <i class="material-icons pTable-icon blue-grey-text text-lighten-2">chevron_right</i>
+        </a>
+    </li>
+    {{/each}}
+</template>
+
+<template name="addPayment">
+    <li class="collection-header"><h4>Add Payment</h4></li>
+    <div class="row">
+        <div class="col m12">
+            {{#each cards}}
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <p class="card-title">**** **** **** {{last4}} <a href="" class="delete_card"><i class="material-icons float-right">close</i></a></p>
+                        <p>Exp. {{exp_month}}/{{exp_year}} Zip {{address_zip}}</p>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="">Add new card</div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="card-number" type="tel" class="cc-num" required>
+            <label for="card-number">Card Number</label>
+        </div>
+        <div class="input-field col s4">
+            <input id="exp-date" type="tel" class="cc-exp" required>
+            <label for="exp-date">Expired Date</label>
+        </div>
+        <div class="input-field col s4">
+            <input id="cvc" type="tel" class="cc-cvc" required>
+            <label for="cvc">CVC</label>
+        </div>
+        <div class="input-field col s4">
+            <input id="zip-code" type="tel" class="cc-zip" required>
+            <label for="zip-code">Zip Code</label>
+        </div>
+    </div>
+    <a id="save_card" class="waves-effect waves-light btn teal lighten-2" style="">Save</a>
+</template>
+
+<template name="editInfo">
+    <h4>Edit Information</h4>
+    <form class="">
+        <div class="row">
+            <div class="update-picture">
+                {{#autoForm collection="Meteor.users" doc=currentUser id="updateUser" type="update"}}
+                    <div class="input-field col s12">
+                        {{> afQuickField label-class="" label="Change Avatar" name="profile.avatar"}}
+                    </div>
+                    <div type="submit" class="waves-effect waves-light btn teal lighten-2">Update Picture</div>
+                {{/autoForm}}
+            </div>
+
+            <div class="basic-info">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" placeholder="{{currentUser.profile.firstName}}" value="{{currentUser.profile.firstName}}" class="validate">
+                    <label for="first_name" class="active">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" placeholder="{{currentUser.profile.lastName}}" value="{{currentUser.profile.lastName}}" class="validate">
+                    <label for="last_name" class="active">Last Name</label>
+                </div>
+            </div>
+
+            <div class="add-vehicle">
+                <div class="input-field col s12">
+                    <input id="phone" type="tel" placeholder="{{currentUser.profile.phone}}" value="{{currentUser.profile.phone}}" class="validate">
+                    <label for="phone" class="active">Phone Number</label>
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <a id="save_info" class="waves-effect waves-light teal lighten-2 btn" style="">Save</a>
+    <h5 class="margin-top-bottom-20">My Vehicles</h5>
+    {{#each myVehicles}}
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                {{ make }} {{ model }} {{ year }} <a href="" class="delete_vehicle"><i class="material-icons float-right">close</i></a>
+            </div>
+        </div>
+    {{/each}}
+    <div class="input-field col s12" >
+        <select class="browser-default" id="choose_make">
+            <option value="">Choose Make</option>
+            <option value="am-general">AM General</option>
+            <option value="acura">Acura</option>
+            <option value="alfa-romeo">Alfa Romeo</option>
+            <option value="aston-martin">Aston Martin</option>
+            <option value="audi">Audi</option>
+            <option value="bmw">BMW</option>
+            <option value="bentley">Bentley</option>
+            <option value="bugatti">Bugatti</option>
+            <option value="buick">Buick</option>
+            <option value="cadillac">Cadillac</option>
+            <option value="chevrolet">Chevrolet</option>
+            <option value="chrysler">Chrysler</option>
+            <option value="daewoo">Daewoo</option>
+            <option value="dodge">Dodge</option>
+            <option value="eagle">Eagle</option>
+            <option value="fiat">FIAT</option>
+            <option value="ferrari">Ferrari</option>
+            <option value="fisker">Fisker</option>
+            <option value="ford">Ford</option>
+            <option value="gmc">GMC</option>
+            <option value="geo">Geo</option>
+            <option value="hummer">HUMMER</option>
+            <option value="honda">Honda</option>
+            <option value="hyundai">Hyundai</option>
+            <option value="infiniti">Infiniti</option>
+            <option value="isuzu">Isuzu</option>
+            <option value="jaguar">Jaguar</option>
+            <option value="jeep">Jeep</option>
+            <option value="kia">Kia</option>
+            <option value="lamborghini">Lamborghini</option>
+            <option value="land-rover">Land Rover</option>
+            <option value="lexus">Lexus</option>
+            <option value="lincoln">Lincoln</option>
+            <option value="lotus">Lotus</option>
+            <option value="mini">MINI</option>
+            <option value="maserati">Maserati</option>
+            <option value="maybach">Maybach</option>
+            <option value="mazda">Mazda</option>
+            <option value="mclaren">McLaren</option>
+            <option value="mercedes-benz">Mercedes-Benz</option>
+            <option value="mercury">Mercury</option>
+            <option value="mitsubishi">Mitsubishi</option>
+            <option value="nissan">Nissan</option>
+            <option value="oldsmobile">Oldsmobile</option>
+            <option value="panoz">Panoz</option>
+            <option value="plymouth">Plymouth</option>
+            <option value="pontiac">Pontiac</option>
+            <option value="porsche">Porsche</option>
+            <option value="ram">Ram</option>
+            <option value="rolls-royce">Rolls-Royce</option>
+            <option value="saab">Saab</option>
+            <option value="saturn">Saturn</option>
+            <option value="scion">Scion</option>
+            <option value="spyker">Spyker</option>
+            <option value="subaru">Subaru</option>
+            <option value="suzuki">Suzuki</option>
+            <option value="tesla">Tesla</option>
+            <option value="toyota">Toyota</option>
+            <option value="volkswagen">Volkswagen</option>
+            <option value="volvo">Volvo</option>
+            <option value="smart">smart</option>
+        </select>
+    </div>
+
+    <div class="input-field col s12" >
+        <select class="browser-default" id="choose_model">
+            <option value="">Choose Model</option>
+            {{#each models }}
+                <option value="{{niceName}}">{{name}}</option>
+            {{/each}}
+        </select><br />
+    </div>
+
+    <div class="input-field col s12" >
+        <select class="browser-default" id="choose_year">
+            <option value="">Choose Year</option>
+            {{#each years }}
+                <option value="{{year}}">{{year}}</option>
+            {{/each}}
+        </select><br />
+    </div>
+        <a id="add_car" class="waves-effect waves-light teal lighten-2 btn" style="">Add</a>
+</template>

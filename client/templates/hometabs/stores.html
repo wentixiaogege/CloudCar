@@ -1,0 +1,25 @@
+<template name="homestores">
+    <br/>
+    <div class="top-stores">
+            <div class="row">
+                
+                       {{#each result}}
+                            <div class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/oilChange.jpg">
+                                    <span class="card-title">{{storeName}}</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">{{streetAddress}},{{city}},{{state}}</p>
+                                    <p class="collection-item">{{phoneNumber}}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sId="{{_id}}">See More</a>
+                                </div>
+                            </div>
+                       {{/each}}
+              
+            </div>
+        </div>
+
+</template>

@@ -1,0 +1,24 @@
+<template name="storeDetail">
+    <br/>
+    <div class="container">
+        <div class="row">
+            <img class="col s12 m4" width="150px" height="190px" alt="store picture" />
+            <div class="col s12 m8">
+                <h5>{{thisStore.storeName}}</h5>
+                <p>{{thisStore.streetAddress}}, {{thisStore.city}}, {{thisStore.state}}</p>
+                <p>{{phoneNumber}}</p>
+                {{#if thisStore.services}}
+                    <h5>services</h5>
+                    {{#each thisStore.services}}
+                        <div class="input-label">{{service}}</div>
+                        <span class="service_price"><span>$ {{price}}</span></span>
+                    {{/each}}
+                {{else}}
+                    <div class="input-label">Only Carvicer store can show service list.</div>
+                {{/if}}
+            </div>
+
+        </div>
+    </div>
+
+</template>

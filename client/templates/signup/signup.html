@@ -1,0 +1,21 @@
+<template name="signup">
+    <div class="container">
+        <div class="row">
+            <div class="padding margin-top-bottom-10">
+                <div class="center sign-up-heading">
+                    <a href="/"> <img src="1logo.png" width="100" class="center animated rotateIn"></a>
+                    <h5 class="teal-text text-lighten-3">Carvicer</h5>
+                </div>
+                {{> Template.dynamic template=currentTab}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="signupForm">
+    <div class="sign-sheet">{{> atForm state='signUp'}}</div>
+</template>
+
+<template name="signinForm">
+    <div class="sign-sheet">{{> atForm state='signIn'}}</div>
+</template>

@@ -1,0 +1,3 @@
+Template.storeDetail.onRendered(function(){
+
+});

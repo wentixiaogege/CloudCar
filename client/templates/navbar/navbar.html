@@ -1,0 +1,84 @@
+<template name="navbar">
+    <div class="navbar-fixed">
+        <nav class="main-navbar">
+            <div class="nav-wrapper white">
+                <a href="/" class="brand-logo hide-on-med-and-down"><img width="60" src="/1logo.png"></a>
+                <a href="/" class="brand-logo teal-text text-lighten-1 logo-heading hide-on-large-only">Carvicer</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons teal-text text-lighten-3">menu</i></a>
+                <div class="right homepage-btn">
+                    {{#if currentUser}}
+                        <a id="logout" class="btn-small waves-effect waves-light amber darken-1">Log Out</a>
+                    {{else}}
+                        <a href="" id="login" class="sing-in-btn grey-text text-lighten-1 modal-trigger hide-on-small-only">Sign In</a>
+                        <a href="/signup" class="btn-small waves-effect waves-light amber darken-1 z-depth-1">Sign Up</a>
+                    {{/if}}
+                </div>
+                <ul class="navbar-with-logo hide-on-med-and-down">
+                    <li><a href="/about" class="teal-text text-lighten-1">About Carvicer</a></li>
+                    {{#if currentUser}}
+                    <li><a href="/usercenter" class="teal-text text-lighten-1">User Center</a></li>
+                    {{/if}}
+                    <li>
+                        {{#if currentUser.profile.myStores }}
+                        {{>storeList}}
+                    {{/if}}</li>
+
+                    <li><a href="/search" class="teal-text text-lighten-1">Search</a></li>
+                </ul>
+                <ul class="side-nav blue-grey darken-1" id="mobile-demo">
+                    {{# if currentUser}}
+                        <li><a id="logout" class="waves-effect waves-light white-text">Log Out</a></li>
+                    {{else}}
+                        <a href="/signup" class="btn waves-effect waves-light red lighten-3 z-depth-1 white-text">Create an account</a>
+                        <li><a id="login" class=" waves-effect waves-light white-text modal-trigger">Sign In</a></li>
+
+                    {{/if}}
+                    <li><a class="white-text" href="/about" >About Carvicer</a></li>
+                    {{#if currentUser}}
+                    <li><a class="white-text" href="/usercenter" >User Center</a></li>
+                    {{/if}}
+                    {{#if currentUser.profile.myStores }}
+                        {{>storeListSide}}
+                    {{/if}}
+                    <li><a class="white-text" href="/search" >Search</a></li>
+
+
+
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 class="blue-grey-text text-lighten-2">Sign In</h4>
+            {{> atForm state='signIn'}}
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat blue-grey-text text-lighten-2">Close</a>
+        </div>
+    </div>
+</template>
+
+<template name="storeList">
+    <li><a class='dropdown-button my-stores teal-text text-lighten-3' href='#' data-activates='dropdown1'>My Stores</a></li>
+
+    <ul id='dropdown1' class='dropdown-content'>
+        {{#each stores}}
+            <li><a href="/storeDetail/{{id}}/admin">{{storeName}}</a></li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="storeListSide">
+    <li><a class='dropdown-button my-stores white-text' href='#' data-activates='dropdown2'>My Stores</a></li>
+
+    <ul id='dropdown2' class='dropdown-content'>
+        {{#each stores}}
+            <li><a href="/storeDetail/{{id}}/admin">{{storeName}}</a></li>
+        {{/each}}
+    </ul>
+</template>

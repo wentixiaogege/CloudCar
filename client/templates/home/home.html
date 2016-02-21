@@ -1,0 +1,202 @@
+<template name="home" xmlns="http://www.w3.org/1999/html">
+
+
+    <div id="index-banner" class="parallax-container" >
+        <div class="section no-pad-bot">
+            <div class="float-right">
+                {{> i18n_buttons}}  
+            </div>
+            <!-- {{_ "hello"}} -->
+            <div class="container">
+                <br><br>
+                <div class="center"><img src="2logo.png" class="logo-banner"></div>
+
+                <h1 class="header center grey-text text-lighten-5 font-questrial">Carvicer</h1>
+                <div class="row center">
+
+                    <h5 class="header col s12 light blue-text text-lighten-5 " style="margin-top:-15px;margin-bottom: 30px;">{{_ "Connect Drivers' Requests to Auto Shops"}}</h5>
+                        
+                    {{#unless currentUser}}
+                        <a href="/signup" id="" class="btn btn-large waves-effect waves-light amber darken-1 col s8 m4 l4 offset-s2 offset-m4 offset-l4">{{_ "Register Now"}}</a>
+                    {{/unless}}
+                </div>
+                {{>search}}
+               <!--  <div class="container">
+                    <div class="row search-box padding-top 10px;">
+                        <div class="col s12 m6 l5 city "><input id="txtSearch" required="true" placeholder="City" class="search-text" type="text" name="city"></div>
+                        <div class="input-field col s12 m6 l5 service ">
+                        <select id="selService" name="service" >
+                        <option value="all"  selected>Choose Auto Service</option>
+                            {{#each services}}
+                                console.log({{text}});
+                                <option   value="{{value}}">{{text}}</option>
+                            {{/each}}
+                        </select>
+                        </div>
+                        <a id="btnSearch" class="btn waves-effect waves-light blue-grey lighten-1 col s8 m6 l2 offset-s2 offset-m3">Search</a>
+                    </div>
+                </div> -->
+                <br><br>
+            </div>
+        </div>
+
+        <div class="parallax"><img class="responsive-img" src="/3.jpg" alt="Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 350px, 0px);"></div>
+    </div>
+
+    <nav class="home-nav">
+            <div class="nav-wrapper white">
+                <div class="col s12 l8 m12 ">
+                    <ul class="tabs col s8 l8 m8">
+                        <li class="tab col m2 s2 l2"><a class="blue-text hometab" href="#stores">Stores</a></li>
+                        <li class="tab col m2 s2 l2"><a class="blue-text hometab" href="#posts">Coupons</a></li>
+                        <li class="tab col m2 s2 l2"><a class="blue-text hometab" href="#followers">Service Request</a></li>
+                        <li class="tab col m2 s2 l2"><a class="blue-text hometab" href="#following">Maintance Tips</a></li>
+                        <!-- <div class="indicator blue" style="z-index:1"></div> -->
+                    </ul>
+                    <div class="right homepage-btn">
+                        <!--<a href="" class="btn waves-effect waves-light teal lighten-3" >Sign In</a>-->
+
+                        {{#if currentUser}}
+                             <a href="/usercenter" class="btn waves-effect waves-light yellow lighten-2 blue-text">User</a>
+                             <a href="" class="btn waves-effect waves-light blue lighten-2 text">Cart</a>
+                             <a id="logout" class="btn-small waves-effect waves-light amber darken-1" >Log Out</a>
+                        {{else}}
+                            <a href="" id="login" class="sing-in-btn home-sign-in blue-grey-text text-lighten-2 modal-trigger">Sign In</a>
+                            <a href="/signup" class="btn waves-effect waves-light red lighten-2 z-depth-1" >Sign Up</a>
+                        {{/if}}
+                    </div>
+                    <ul class="left hide-on-med-and-down">
+                        <!-- <li><a href="/about" >About Carvicer</a></li> -->
+                        {{#if currentUser}}
+                        {{/if}}
+                            {{#if currentUser.profile.myStores }}
+                                {{>storeList}}
+                            {{/if}}
+                        <!-- <li><a href="/search" >Search</a></li> -->
+                    </ul>
+                
+                </div>
+                 
+                 
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+               
+                <ul class="side-nav teal-text text-lighten-3" id="mobile-demo">
+                    {{# if currentUser}}
+                        <li><a id="logout" class=" waves-effect waves-light grey-text text-darken-2">Log Out</a></li>
+
+                    {{else}}
+                        <a href="/signup" class="btn waves-effect waves-light red lighten-2 z-depth-1 white-text">Create an account</a>
+                        <li><a id="login" class=" waves-effect waves-light grey-text text-darken-2 modal-trigger">Sign In</a></li>
+
+                    {{/if}}
+                    <li><a href="/about" >About Carvicer</a></li>
+                    {{#if currentUser}}
+                    <li><a href="/usercenter" >User Center</a></li>
+                    {{/if}}
+                        {{#if currentUser.profile.myStores }}
+                            {{>storeListSide}}
+                        {{/if}}
+                    <li><a href="/search" >Search</a></li>
+                </ul>
+            </div>
+
+    </nav>
+     <!-- Modal Structure Login here-->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 class="blue-grey-text text-lighten-2">Sign In</h4>
+            {{> atForm state='signIn'}}
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat blue-grey-text text-lighten-2">Close</a>
+        </div>
+    </div>
+   <!--  <div class="slider col s12 m6 l8"> -->
+    <div class="hometabs">
+        <div id="stores" class="col s12">
+           {{>homestores}}
+        </div>
+        <div id="posts" class="col s12">Test 2</div>
+        <div id="followers" class="col s12">Test 3</div>
+        <div id="following" class="col s12">Test 4</div>
+    </div>
+    <!-- </div> -->
+    <!-- <div class="container row">
+        {{>search}}
+    </div> -->
+     <!--         
+      <div class="slider col s12 m6 l8">
+            <ul class="slides ">
+                <li>
+                    <img src="/w1.jpg"> 
+                    <div class="caption left-align">
+                        <h4 class="blue-grey-text text-lighten-2">What We Do</h4>
+                        <h5 class="grey-text ">Send drivers' requests to auto shops.</h5>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="caption left-align second-slide">
+                        <h4 class="blue-grey-text text-lighten-2">What You Do</h4>
+                        <h5 class="grey-text ">Shop owners</h5>
+                        <p class="grey-text ">Receive nearby requests from drivers and reply in quotes.</p>
+                        <h5 class="grey-text ">Drivers</h5>
+                        <p class="grey-text ">Choose one of quotes from auto shops.</p>
+                        <a class="btn amber lighten-1" href="/register" id="goRegister">Register Your Store</a>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="row home-slider">
+            <div class="col s12 m6 l4 center">
+                <img src="/slides1.jpg" class="slide-img">
+                <div class="col s6 offset-s3 center appstore-col"><a href="https://itunes.apple.com/us/app/carvicer/id1030583980?mt=8"><img class="appstore hide-on-med-and-down" src="/qr-d.png"><img class="appstore hide-on-large-only" src="/app store.png" ></a>
+                    <h6 class="blue-grey-text text-lighten-2">Drivers now!</h6></div>
+
+
+            </div>
+        </div> 
+ -->
+
+
+    <div class="teal lighten-2 white-text how-to-use">
+        <div class="container">
+            <h4 class="white-text">How to use Carvicer</h4>
+            <div class="row">
+                <div class="col s12 m3 workflow center">
+                    <img src="/workflow1.jpg">
+                    <h5 class="white-text center">Step 1 Request</h5>
+                    <p class="light white-text">Drivers fill out the request form and schedule a date then send it to auto shops, and then auto shop owners offer quotes based on store prices in reply.</p>
+                </div>
+
+                <div class="col s12 m3 workflow center">
+                    <img src="/workflow2.jpg">
+                    <h5 class="white-text center">Step 2 Select</h5>
+                    <p class="light white-text">Drivers compare all quotes at the same time and pick the ideal one, and then shop owners will get notification for confirmation.</p>
+                </div>
+
+                <div class="col s12 m3 workflow center">
+                    <img src="/workflow3.jpg">
+                    <h5 class="white-text center">Step 3 Service</h5>
+                    <p class="light white-text">Drive cars to auto shops on that date to redeem this service by e-mail receipt.</p>
+                </div>
+
+                <div class="col s12 m3 workflow center">
+                    <img src="/workflow4.jpg">
+                    <h5 class="white-text center">Step 4 Confirm</h5>
+                    <p class="light white-text">Drivers confirm the payment after all service done.</p>
+                </div>
+            </div>
+
+            <div class="margin-top-bottom-10 center">
+                <a class="btn amber darken-1" href="/register" id="goRegister">Register Your Store</a>
+            </div>
+
+        </div>
+    </div>
+
+</template>

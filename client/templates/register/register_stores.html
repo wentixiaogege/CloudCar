@@ -1,0 +1,88 @@
+<template name =  "registerStores">
+<div class="container">
+    <div class="row">
+
+        {{#contentFor "headerTitle"}}
+            <div class = "bar bar-header bar-dark">
+                <h1 class = "title">Store Register</h1>
+            </div>
+        {{/contentFor}}
+
+
+        <br>
+        <h3 class="hide-on-small-only">Welcome to be Our Partner</h3>
+        <h5 class="hide-on-med-and-up center">Welcome to be Our Partner</h5>
+        <div class="list list-inset register">
+
+            <!--<label class="item item-input">-->
+            <!--<input type="email" placeholder="email" id = "email">-->
+            <!--</label>-->
+            <div class="row">
+                <div class="input-field col s12 m12">
+                    <input type="text" placeholder="Store Name" id = "storeName">
+                    <label class="item item-input col s12 m12 " for="storeName"></label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <input type="number" placeholder="Contact Number" id = "phoneNumber">
+                    <label class="item item-input " for="phoneNumber"></label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <input type="text" placeholder="Licence Number" id = "licenceNo">
+                    <label class="item item-input col s12 m6 " for="licenceNo"></label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Street Address" id = "streetAddress" class="inputLocation">
+                    <label class="item item-input" for="streetAddress"></label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <input type="text" placeholder="City" id = "city"  class="inputLocation">
+                    <label class="item item-input" for="city"></label>
+                </div>
+
+                <div class="input-field col s6 m4">
+                    <input type="text" placeholder="State" id = "state"  class="inputLocation">
+                    <label class="item item-input" for="state"></label>
+                </div>
+
+                <div class="input-field col s6 m2">
+                    <input type="text" placeholder="Zip Code" id = "zipCode"  class="inputLocation">
+                    <label class="item item-input" for="zipCode"></label>
+                </div>
+
+            </div>
+
+            <div style="position:relative;height: 300px;">
+                <div id="map" class="card col s12" ></div>
+            </div>
+
+            <div class="map-container col s12 ">
+                {{> googleMap name="exampleMap" options=exampleMapOptions}}
+            </div>
+
+			<label id = "callback" value = "{{registerStatus}}">{{registerStatus}}</label>
+
+            <div class="padding center">
+
+            </div>
+
+        </div>
+        <br>
+
+        <label id = "callback" value = "{{registerStatus}}">{{registerStatus}}</label>
+
+        <div class="center padding register-btn">
+            <a class="btn btn-large teal lighten-2" data-action="storeRegister" id="btnRegStore">
+                Register
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+
+</template>

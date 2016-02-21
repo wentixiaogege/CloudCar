@@ -1,0 +1,42 @@
+<template name="search">
+    <div class="container">
+        <div class="row search-box" style="position:relative; z-index:1000" >
+            <div class="col s12 m6 l5 city ">
+                <input id="txtSearch" required="true" placeholder="City" class="search-text" type="text" name="city">
+            </div>
+            <div class="input-field col s12 m6 l5 service ">
+            <select id="selService" name="service" >
+            <option value="all"  selected>Choose Auto Service</option>
+                {{#each services}}
+                    console.log({{text}});
+                    <option   value="{{value}}">{{text}}</option>
+                {{/each}}
+            </select>
+            </div>
+            <a id="btnSearch" class="btn waves-effect waves-light blue-grey lighten-1 col s8 m6 l2 offset-s2 offset-m3">Search</a>
+        </div>
+
+        <div class="search-result">
+            <div class="row">
+                <div class="">
+                       {{#each result}}
+                            <div class="card col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/oilChange.jpg">
+                                    <span class="card-title">{{storeName}}</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">{{streetAddress}},{{city}},{{state}}</p>
+                                    <p class="collection-item">{{phoneNumber}}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sId="{{_id}}">See More</a>
+                                </div>
+                            </div>
+                       {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

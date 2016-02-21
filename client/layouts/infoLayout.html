@@ -1,0 +1,32 @@
+<template name="infoLayout">
+    {{>navbar}}
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4 ">
+                    {{>infoCatalog}}
+                </div>
+                <div class="col s12 m8">
+                    {{>yield}}
+                </div>
+            </div>
+        </div>
+    {{>footer}}
+</template>
+
+<template name="infoCatalog">
+    <div class="info-catalog">
+        <div class="collection with-header">
+            <h4 class="collection-header collection-item blue-grey-text text-darken-1 center" id="catalog">Catalog</h4>
+            <a href="/about" class="collection-item blue-grey-text text-lighten-1">About</a>
+            <a href="/guidelines" class="collection-item blue-grey-text text-lighten-1">Content Guidelines</a>
+            <!--<p><a href="/careers" class="collection-item">Careers</a></p>-->
+            <a href="/policy" class="collection-item blue-grey-text text-lighten-1">Privacy Policy</a>
+            <a href="/why-carvicer" class="collection-item blue-grey-text text-lighten-1">Why Carvicer</a>
+            <a href="/driver-faq" class="collection-item blue-grey-text text-lighten-1">Driver FAQ</a>
+            <a href="/store-faq" class="collection-item blue-grey-text text-lighten-1">Store FAQ</a>
+        </div>
+    </div>
+
+    <div><a href="#catalog" class="go-top btn-floating btn-large waves-effect waves-light  blue-grey darken-1" id="anchor-to-catalog"><i class="fa fa-arrow-up"></i></a></div>
+
+</template>

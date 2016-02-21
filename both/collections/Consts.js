@@ -1,0 +1,1 @@
+consts = new Mongo.Collection("Consts");
