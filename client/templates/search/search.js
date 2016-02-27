@@ -16,6 +16,11 @@ Template.search.helpers({
     services: function(){
       return consts.findOne().constValue;
     },
+    cities: function(){
+
+      console.log(consts.findOne({constName:'cities'}));
+      return consts.findOne({constName:'cities'}).constValue;
+    },
     result: function(){
         return Session.get('searchResult');
     }

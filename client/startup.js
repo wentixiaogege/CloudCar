@@ -4,3 +4,4 @@ Meteor.call("isProd",function(err,isProd){
     else
         Stripe.setPublishableKey(Meteor.settings.public.stripeTestPublicKey);
 });
+

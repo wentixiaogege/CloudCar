@@ -1,6 +1,13 @@
 { "hello": "你好 ",
   "Connect Drivers' Requests to Auto Shops": "将司机师傅的要求直接丢给汽车厂商 ",
-  "Register Now": "立即注册"
-
-
+  "Register Now": "立即注册",
+  "Sign In" : "登入",
+  "Languages" :"语言",
+  "Search" : "搜索",
+  "Choose Auto Service" :"选择你需要的服务",
+  "Choose cities":"选择城市",
+  "STORES":"商店",
+  "COUPONS":"折扣",
+  "SERVICE REQUEST":"申请服务",
+  "MAINTANCE TIPS":"保养技巧"
    }

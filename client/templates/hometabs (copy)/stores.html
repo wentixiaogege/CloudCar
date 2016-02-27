@@ -1,54 +1,193 @@
-<template name="search">
-    <div class="container">
-        <div class="row search-box" style="position:relative; z-index:1000" >
-           <!--  <div class="col s12 m6 l5 city ">
-                <input id="txtSearch" required="true" placeholder="City" class="search-text" type="text" name="city">
-            </div> -->
-            <div class="input-field col s12 m6 l5 service ">
-            <select id="selService" name="service" >
-            <option value="all"  selected>Choose Auto Service</option>
-                {{#each services}}
-                    console.log({{text}});
-                    <option   value="{{value}}">{{text}}</option>
-                {{/each}}
-            </select>
-            </div>
-
-             <div class="input-field col s12 m6 l5 service">
-            <select id="txtSearch" name="city" >
-            <option value="all"  selected>Choose cities</option>
-                {{#each cities}}
-                    console.log({{text}});
-                    <option   value="{{value}}">{{text}}</option>
-                {{/each}}
-            </select>
-            </div>
-            <a id="btnSearch" class="btn waves-effect waves-light blue-grey lighten-1 col s8 m6 l2 offset-s2 offset-m3" style="float:right; margin:-20px 0 0 0">Search</a>
-        </div>
-
-       <!--  <div class="search-result">
-            <div class="row">
-                <div class="">
-                       {{#each result}}
-                            <div class="card col s6 m4 l3 store-result">
+<template name="homestores">
+    <br/>
+    <div class="top-stores">
+        <div class="row"  style="margin:0 auto 0 6vw">
+                
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
                                 <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">{{storeName}}</span>
+                                    <img src="/c1.jpg" width="176" height="132">
+                                    <span class="card-title">Cupertino Auto Care</span>
                                 </div>
                                 <div class="card-content">
-                                    <p class="collection-item">{{streetAddress}},{{city}},{{state}}</p>
-                                    <p class="collection-item">{{phoneNumber}}</p>
+                                    <p class="collection-item">22510 Stevens Creek Blvd,Cupertino, CA 95014,ca</p>
+                                    <p class="collection-item">1 408-725-0711</p>
                                 </div>
                                 <div class="card-action">
-                                    <a class="btnStoreDetail" sId="{{_id}}">See More</a>
+                                    <a class="btnStoreDetail" sid="HhjiJPmjYLs3Dus6Z">See More</a>
                                 </div>
                             </div>
-                       {{/each}}
-                </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/c2.png" width="176" height="132">
+                                    <span class="card-title">Joe's 2</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">25200 carlos bee blvd,Hayward,CA</p>
+                                    <p class="collection-item">(510) 918-9923</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="8KZ346xQ2gGc8KedN">See More</a>
+                                </div>
+                            </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/c3.png" width="176" height="132">
+                                    <span class="card-title">My store</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">25200 carlos bee blvd,hayward,ca</p>
+                                    <p class="collection-item">(321) 654-974</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="bJwtRwzbMj3k68sh9">See More</a>
+                                </div>
+                            </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/c4.png" width="176" height="132">
+                                    <span class="card-title">Bruce Li</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">2711 North 1St,SanJose,CA</p>
+                                    <p class="collection-item">(409) 904-8802</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="2pB59Z2s5PSr7dbtQ">See More</a>
+                                </div>
+                            </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/m1.png" width="176" height="132">
+                                    <span class="card-title">Kim’s Auto Body</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">525 W San Carlos St,San Jose,CA</p>
+                                    <p class="collection-item">(408) 294-7633</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="hcPyLr8F2dWwTos3o">See More</a>
+                                </div>
+                            </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/m2.png" width="176" height="132">
+                                    <span class="card-title">Sunnyvale Ford Lincoln</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">650 E El Camino Real,Sunnyvale,CA</p>
+                                    <p class="collection-item">(855) 429-2882</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="C9agGGAEMue2yCZih">See More</a>
+                                </div>
+                            </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/m3.png" width="176" height="132">
+                                    <span class="card-title">Fremont Ford</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">39700 Balentine Dr,Newark,CA</p>
+                                    <p class="collection-item">(888) 714-0146</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="9RuPW7JTJzTg2PH9Q">See More</a>
+                                </div>
+                            </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/san1.png" width="176" height="132">
+                                    <span class="card-title">Lexus of Pleasanton</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">4345 Rosewood Drive,Pleasanton,CA</p>
+                                    <p class="collection-item">(925) 401-3565</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="E9fDeQHQpKBkWENZi">See More</a>
+                                </div>
+                            </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/san2.png" width="176" height="132">
+                                    <span class="card-title">Magnussen Lexus of Fremont</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">5600 Cushing Pkwy,Fremont,CA</p>
+                                    <p class="collection-item">(510) 657-6600</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="vMGxJc2SAhouTLqyQ">See More</a>
+                                </div>
+                            </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/san3.png" width="176" height="132">
+                                    <span class="card-title">Oil Changer</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">3213 dwqd,dwq,dqwe</p>
+                                    <p class="collection-item">(321) 321-31</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="NJq9nDvJAN85xJwgc">See More</a>
+                                </div>
+                            </div>
+                       
+                            <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/san4.png" width="176" height="132">
+                                    <span class="card-title">Groey</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">25200 carlos bee blvd,Hayward,CA</p>
+                                    <p class="collection-item">(410) 443-9876</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="jhnTKDQ5G9vZS8CuM">See More</a>
+                                </div>
+                            </div>
+                       <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/san5.png" width="176" height="132">
+                                    <span class="card-title">Groey</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">25200 carlos bee blvd,Hayward,CA</p>
+                                    <p class="collection-item">(410) 443-9876</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="jhnTKDQ5G9vZS8CuM">See More</a>
+                                </div>
+                            </div>
+                       <div style="width:16vw" class="card transparent col s6 m4 l3 store-result">
+                                <div class="card-image">
+                                    <img src="/san6.png" width="176" height="132">
+                                    <span class="card-title">Groey</span>
+                                </div>
+                                <div class="card-content">
+                                    <p class="collection-item">25200 carlos bee blvd,Hayward,CA</p>
+                                    <p class="collection-item">(410) 443-9876</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="btnStoreDetail" sid="jhnTKDQ5G9vZS8CuM">See More</a>
+                                </div>
+                            </div>
+                     
+                       
+              
             </div>
-        </div> -->
-        <div class="top-stores">
-      <!--   <div class="row">
+           <!--  <div class="row">
                 
                        {{#each result}}
                             <div class="card transparent col s6 m4 l3 store-result">
@@ -67,165 +206,6 @@
                        {{/each}}
               
             </div> -->
-       <div class="row">
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Joe's</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">25200 carlos bee blvd,hayward,ca</p>
-                                    <p class="collection-item">1 231-231-232</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="HhjiJPmjYLs3Dus6Z">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Joe's 2</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">San Jose</p>
-                                    <p class="collection-item">(510) 918-9923</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="8KZ346xQ2gGc8KedN">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">My store</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">25200 carlos bee blvd,hayward,ca</p>
-                                    <p class="collection-item">(321) 654-974</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="bJwtRwzbMj3k68sh9">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Bruce Li</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">2711 North 1St,SanJose,CA</p>
-                                    <p class="collection-item">(409) 904-8802</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="2pB59Z2s5PSr7dbtQ">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Kim’s Auto Body</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">525 W San Carlos St,San Jose,CA</p>
-                                    <p class="collection-item">(408) 294-7633</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="hcPyLr8F2dWwTos3o">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Sunnyvale Ford Lincoln</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">650 E El Camino Real,Sunnyvale,CA</p>
-                                    <p class="collection-item">(855) 429-2882</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="C9agGGAEMue2yCZih">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Fremont Ford</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">39700 Balentine Dr,Newark,CA</p>
-                                    <p class="collection-item">(888) 714-0146</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="9RuPW7JTJzTg2PH9Q">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Lexus of Pleasanton</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">4345 Rosewood Drive,Pleasanton,CA</p>
-                                    <p class="collection-item">(925) 401-3565</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="E9fDeQHQpKBkWENZi">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Magnussen Lexus of Fremont</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">5600 Cushing Pkwy,Fremont,CA</p>
-                                    <p class="collection-item">(510) 657-6600</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="vMGxJc2SAhouTLqyQ">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Oil Changer</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">3213 dwqd,dwq,dqwe</p>
-                                    <p class="collection-item">(321) 321-31</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="NJq9nDvJAN85xJwgc">See More</a>
-                                </div>
-                            </div>
-                       
-                            <div class="card transparent col s6 m4 l3 store-result">
-                                <div class="card-image">
-                                    <img src="/oilChange.jpg">
-                                    <span class="card-title">Groey</span>
-                                </div>
-                                <div class="card-content">
-                                    <p class="collection-item">25200 carlos bee blvd,Hayward,CA</p>
-                                    <p class="collection-item">(410) 443-9876</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="btnStoreDetail" sid="jhnTKDQ5G9vZS8CuM">See More</a>
-                                </div>
-                            </div>
-                       
-              
-            </div>
-            
         </div>
-    </div>
 
 </template>

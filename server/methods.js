@@ -14,7 +14,7 @@ Meteor.methods({
         }
         else{
             //ss = stores.find({"sCity":str, "services.service":service}).fetch();
-            ss = stores.find({ $and: [{"sCity":str},{services: {$elemMatch: {service: service}}}]}).fetch();
+            ss = stores.find({ $and: [{"City":str},{services: {$elemMatch: {service: service}}}]}).fetch();
         }
         return ss;
     },

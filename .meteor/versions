@@ -49,7 +49,6 @@ ddp-common@1.2.2
 ddp-rate-limiter@1.0.0
 ddp-server@1.2.2
 deps@1.0.9
-dhruv:polymer-google-youtube@0.0.1
 diff-sequence@1.0.1
 dispatch:phoneformat.js@1.5.5
 ecmascript@0.1.6

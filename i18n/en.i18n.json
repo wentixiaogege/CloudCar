@@ -1,5 +1,14 @@
-{ "hello": "Hey there",
+{ 
+  "hello": "Hey there",
   "Connect Drivers' Requests to Auto Shops":"Connect Drivers' Requests to Auto Shops",
-  "Register Now": "Register Now"
-
+  "Register Now": "Register Now",
+  "Sign In" : "Sign In",
+  "Languages" :"Languages",
+  "Search" : "Search",
+  "Choose Auto Service" :"Choose Auto Service",
+  "Choose cities":"Choose cities",
+  "STORES":"STORES",
+  "COUPONS":"COUPONS",
+  "SERVICE REQUEST":"SERVICE REQUEST",
+  "MAINTANCE TIPS":"MAINTANCE TIPS"
 }

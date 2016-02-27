@@ -1,3 +1,17 @@
+//=============added by Xiaodan Lu just for one time use, the code need to be reorgnized========//
+#searchbtnTemp{
+  margin-buttom:50px;
+}
+.left{
+  margin-left:10%;
+}
+
+//=============added by Xiaodan Lu just for one time use, the code need to be reorgnized========//
+
+
+
+
+
 // If you want to override materialize sass variables you can uncomment the following:
 @import "{poetic:materialize-scss}/bower_components/materialize/sass/components/_color.scss";
 //$primary-color: color("blue", "lighten-2");
@@ -72,7 +86,8 @@ nav{
   font-family: 'Questrial', sans-serif;
 }
 .brand-logo{
-  margin:0 10px;
+  margin:0 100px;
+  margin-top: 26px;
 }
 .home-sign-in{
   background-color: #eceff1;
@@ -105,7 +120,7 @@ h6{
   font-family: 'Questrial', sans-serif;
   margin-left: -5px;
 }
-.main-navbar .nav-wrapper .btn{
+.main-navbar{
   width: 100%;
   height:45px;
   line-height: 45px;
@@ -257,7 +272,7 @@ h6{
   background-color:#546e7a !important;
 }
 
-.update-picture .input-field label{
+.update-picture label{
   color:white;
   padding-left:10px;
   margin-top:-3px;
@@ -664,12 +679,7 @@ h6{
   padding-top: 10px;
   padding-bottom: 100px;
 }
-.city .input{
-  color:#e0e0e0 !important;
-}
-.service {
-  margin-top: 0 !important;
-}
+
 .search-text{
   //text-shadow: 2px 2px 5px #757575 !important;
   color:#000000 !important;
@@ -782,4 +792,43 @@ h6{
   display: block;
   font-size: 12px;
   margin: 5px auto;
+}
+nav.top-nav {
+    height: 122px;
+    box-shadow: none;
+    overflow:visible;
+    color: #fff;
+    background-color: #6495ed;
+    width: 100%;
+}
+.nav-wrapper-upper{
+  height: 30px!important;
+}
+.nav-wrapper-down{
+  margin-top:20px;
+  height: 56px!important;
+  margin-left:260px;
+}
+.service {
+  margin-top: 0 !important;
+}
+
+.browser-default{
+  color:#000000;
+}
+.service {
+  height: 30px;
+  width:400px;
+  padding-left:10px;
+  margin-right:20px;
+  margin-top:50px;
+}
+
+.city {
+  height: 30px;
+  padding-left:10px!important;
+}
+.searchbutton{
+  margin:0 !important;
+  padding:0 !important;
 }

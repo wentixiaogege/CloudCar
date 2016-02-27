@@ -12,7 +12,7 @@ Router.onBeforeAction(function(pause) {
 
 Router.route('/',{
     waitOn: function(){
-        return Meteor.subscribe('consts','services');
+        return Meteor.subscribe('consts','services','cities');
     },
     action: function(){
         this.layout('homeLayout');

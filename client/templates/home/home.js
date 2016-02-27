@@ -1,4 +1,5 @@
 Template.home.onRendered(function(){
+    TAPi18n.setLanguage("en");
     $('.parallax').parallax();
     $('select').material_select();
     $(".button-collapse").sideNav();
@@ -42,7 +43,20 @@ Template.home.onRendered(function(){
             $('.home-nav .nav-wrapper').removeClass('grey lighten-5');
         }
     });
+    //add search for home 
+    var query = Router.current().params.query;
+    Meteor.call("getSearch", query.city, query.service, function(err, res){
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(res);
+            Session.set("searchResult",res);
+        }
+    });
+    $('select').material_select();
 });
+
 
 Template.home.events({
     'click #logout': function (event, template){
@@ -60,7 +74,49 @@ Template.home.events({
         event.stopPropagation();
         $('#modal1').closeModal();
         Router.go('/signup');
+    },
+    'click #btnSearch':function(){
+
+        var city = $("#txtSearch").val();
+        var service = $("#selService").val();
+
+        city = city.toLocaleLowerCase();
+        service = service.toLocaleLowerCase();
+        city = city.trim();
+        city = city.replace(/\s+/g, '-');
+        //
+        ////check user input dai
+        //if(city.trim() != ""){
+        //    //call server
+        //
+        //}
+        Session.set("searchResult",""); // clear former results first ?
+        // Router.go('/search/?city=' + city + '&service=' + service );
+        Meteor.call("getSearch", city, service, function(err, res){
+            if(err){
+                console.log(err);
+            }
+            else{
+                console.log(res);
+                Session.set("searchResult",res);
+            }
+        });
+    },
+    "click .btnStoreDetail":function(event){
+        Router.go('/storeDetail/' + this._id);
     }
 });
+Template.home.helpers({
+    services: function(){
+      return consts.findOne().constValue;
+    },
+    cities: function(){
 
+      console.log(consts.findOne({constName:'cities'}));
+      return consts.findOne({constName:'cities'}).constValue;
+    },
+    result: function(){
+        return Session.get('searchResult');
+    }
+});
 
